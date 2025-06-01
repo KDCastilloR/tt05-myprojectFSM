@@ -2,17 +2,17 @@ project:
   title:        "Máquina Expendedora FPGA"
   author:       "Katherine Castillo"
   description:  "FSM combinada Moore-Mealy para máquina expendedora en TinyTapeout"
-  language:     "Verilog"              # o "SystemVerilog" si usas .sv
-  clock_hz:     1000000                # Ejemplo: 1 MHz 
-  tiles:        "1x1"                  # cuantos tiles ocupa el chip
-  top_module:   "top_maquina"          # nombre de tu módulo top, debe ser el que tienes en Verilog/SystemVerilog
+  language:     "Verilog"        # Cambia a "Verilog" si usas .v
+  clock_hz:     1000000                # Ajusta a la frecuencia real del reloj (Hz)
+  tiles:        "1x1"                  # Tamaño del tile ocupado en la FPGA
+  top_module:   "top_maquina"          # Nombre del módulo top en tu código
   source_files:
     - "src/top_maquina.sv"
     - "src/moore_fsm.sv"
     - "src/mealy_fsm.sv"
 
 pinout:
-  # Entradas
+  # Entradas (inputs)
   ui[0]: "clk"
   ui[1]: "reset"
   ui[2]: "moneda[0]"
@@ -22,7 +22,7 @@ pinout:
   ui[6]: ""
   ui[7]: ""
 
-  # Salidas
+  # Salidas (outputs)
   uo[0]: "listoA"
   uo[1]: "listoB"
   uo[2]: "total[0]"
@@ -32,7 +32,7 @@ pinout:
   uo[6]: "cambio[0]"
   uo[7]: "cambio[1]"
 
-  # Bidireccionales (si tienes alguno)
+  # Bidireccionales (si no tienes, déjalos vacíos)
   uio[0]: "cambio[2]"
   uio[1]: "cambio[3]"
   uio[2]: ""
@@ -43,4 +43,5 @@ pinout:
   uio[7]: ""
 
 yaml_version: 6
+
 
