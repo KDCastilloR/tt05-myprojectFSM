@@ -1,0 +1,16 @@
+project:
+  name: "Máquina Expendedora FSM"
+  author: "Katherine Castillo"
+  language: "Verilog"
+  verilog_path: "src/top_maquina.sv"
+  description: "FSM Moore-Mealy para máquina expendedora"
+
+  inputs:
+    - clk
+    - rst
+    - moneda[1:0]
+  outputs:
+    - despacho
+    - vuelto
+
+  tags: ["fsm", "tiny tapeout", "mealy", "moore"]
