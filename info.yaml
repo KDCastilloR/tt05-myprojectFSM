@@ -1,16 +1,46 @@
 project:
-  name: "Máquina Expendedora FSM"
-  author: "Katherine Castillo"
-  language: "Verilog"
-  verilog_path: "src/top_maquina.sv"
-  description: "FSM Moore-Mealy para máquina expendedora"
+  title:        "Máquina Expendedora FPGA"
+  author:       "Katherine Castillo"
+  description:  "FSM combinada Moore-Mealy para máquina expendedora en TinyTapeout"
+  language:     "Verilog"              # o "SystemVerilog" si usas .sv
+  clock_hz:     1000000                # Ejemplo: 1 MHz 
+  tiles:        "1x1"                  # cuantos tiles ocupa el chip
+  top_module:   "top_maquina"          # nombre de tu módulo top, debe ser el que tienes en Verilog/SystemVerilog
+  source_files:
+    - "src/top_maquina.sv"
+    - "src/moore_fsm.sv"
+    - "src/mealy_fsm.sv"
 
-  inputs:
-    - clk
-    - rst
-    - moneda[1:0]
-  outputs:
-    - despacho
-    - vuelto
+pinout:
+  # Entradas
+  ui[0]: "clk"
+  ui[1]: "reset"
+  ui[2]: "moneda[0]"
+  ui[3]: "moneda[1]"
+  ui[4]: "comprarA"
+  ui[5]: "comprarB"
+  ui[6]: ""
+  ui[7]: ""
 
-  tags: ["fsm", "tiny tapeout", "mealy", "moore"]
+  # Salidas
+  uo[0]: "listoA"
+  uo[1]: "listoB"
+  uo[2]: "total[0]"
+  uo[3]: "total[1]"
+  uo[4]: "total[2]"
+  uo[5]: "total[3]"
+  uo[6]: "cambio[0]"
+  uo[7]: "cambio[1]"
+
+  # Bidireccionales (si tienes alguno)
+  uio[0]: "cambio[2]"
+  uio[1]: "cambio[3]"
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+yaml_version: 6
+
